@@ -1,19 +1,16 @@
-# For testing
-# ------------------------------------
 from selenium import webdriver
 import time
+
 driver = webdriver.Chrome()
 url = "http://vizefinal.net"
 driver.get(url)
-# -------------------------------------
-
 
 def justVisaFinal():
     inputVisa  = int(input("vize notun:"))
     inputVisaRate = int(input("vize oranı:"))
     inputFinal = int(input("final notun:"))
     inputFinalRate = int(input("final oranı:"))
-    driver.find_element_by_id("4").click() #FOR TESTİNG
+    # driver.find_element_by_id("3").click()
     visaElement = driver.find_element_by_id("vn")
     visaRateElement = driver.find_element_by_id("vo")
     finalElement = driver.find_element_by_id("fn")
@@ -55,13 +52,29 @@ def extra4():
     extra4Element.send_keys(extra4)
     extra4RateElement.send_keys(extra4Rate)
 
+def scoreYouWant():
+    wantScore = int(input("the score you want:"))
+    wantScoreElement = driver.find_element_by_id("istNotin")
+    wantScoreElement.send_keys(wantScore)
+
 def calculation():
     driver.find_element_by_id("hesap").click()
-    #put timer here.
-    print(driver.find_element_by_id("bilgiAlanı"))
+    time.sleep(0.5) #timer added
+    print(driver.find_element_by_id("bilgiAlani").text)
+
+def scoreYouWantCalculation():
+    driver.find_element_by_id("istNot").click()
+    time.sleep(0.5) #timer added
+    print(driver.find_element_by_id("bilgiAlani2").text)
+
+def deleteAll():
+    time.sleep(1)
+    driver.find_element_by_id("hepsiniSil").click()
+    
 
 
-justVisaFinal() #for testing
+
+
         
         
 
