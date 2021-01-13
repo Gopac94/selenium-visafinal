@@ -10,7 +10,6 @@ def justVisaFinal():
     inputVisaRate = int(input("vize oranı:"))
     inputFinal = int(input("final notun:"))
     inputFinalRate = int(input("final oranı:"))
-    # driver.find_element_by_id("3").click()
     visaElement = driver.find_element_by_id("vn")
     visaRateElement = driver.find_element_by_id("vo")
     finalElement = driver.find_element_by_id("fn")
@@ -19,6 +18,15 @@ def justVisaFinal():
     visaRateElement.send_keys(inputVisaRate)
     finalElement.send_keys(inputFinal)
     finalRateElement.send_keys(inputFinalRate)
+
+def picking1():
+    driver.find_element_by_id("1").click()
+def picking2():
+    driver.find_element_by_id("2").click()
+def picking3():
+    driver.find_element_by_id("3").click()
+def picking4():
+    driver.find_element_by_id("4").click()
 
 def extra1():
     extra1  = int(input("1.Extra Değerlendirme Notu:"))
@@ -59,16 +67,23 @@ def scoreYouWant():
 
 def calculation():
     driver.find_element_by_id("hesap").click()
-    time.sleep(0.5) #timer added
+    time.sleep(1) #timer added
     print(driver.find_element_by_id("bilgiAlani").text)
 
 def scoreYouWantCalculation():
     driver.find_element_by_id("istNot").click()
-    time.sleep(0.5) #timer added
+    time.sleep(2) #timer added
     print(driver.find_element_by_id("bilgiAlani2").text)
 
+def justVisaFinalCalculator():
+    justVisaFinal()
+    calculation()
+    print("Enter the score you want, calculate how many you need to get from the final.")
+    scoreYouWant()
+    scoreYouWantCalculation()
+    deleteAll()
+
 def deleteAll():
-    time.sleep(1)
     driver.find_element_by_id("hepsiniSil").click()
     
 
